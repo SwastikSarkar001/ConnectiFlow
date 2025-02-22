@@ -1,6 +1,21 @@
+import Spline from "@splinetool/react-spline";
+import { SPEObject, Application } from "@splinetool/runtime";
+import { useRef } from "react";
+
 export default function Tiles() {
+  const splineRef = useRef<SPEObject | undefined>(undefined)
+  function onLoad(spline: Application) {
+    const obj = spline.findObjectByName('Chain');
+    splineRef.current = obj;
+  }
   return (
     <div className="relative min-h-screen">
+      <div className="absolute -top-1 bottom-0 inset-x-0 z-2 after:absolute after:w-40 after:h-20 after:bottom-0 after:right-0 after:z-1 after:pointer-events-none after:bg-background">
+        <Spline
+          scene="https://prod.spline.design/QZbnCaRaEajXEQ6X/scene.splinecode"
+          onLoad={onLoad}
+        />
+      </div>
       <div className="grid grid-cols-3 h-screen gap-8 p-8">
         <div className="col-span-1 border-2 rounded-xl border-gray-400/30"></div>
         <div className="col-span-2 border-2 rounded-xl border-gray-400/30"></div>
