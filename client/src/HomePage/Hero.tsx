@@ -13,7 +13,7 @@ export default function Hero() {
     splineRef.current = obj;
   }
   return (
-    <div className="relative pt-6 pb-16 h-screen flex flex-col items-center justify-between bg-[#1e1e1e]">
+    <div className="relative text-white pt-6 pb-16 h-screen flex flex-col items-center justify-between bg-[#1e1e1e]">
       <div className="flex items-center justify-between px-8 w-full">
         <Sidebar direction="left">
           <SidebarTrigger className="relative z-10 cursor-pointer">
@@ -21,7 +21,7 @@ export default function Hero() {
           </SidebarTrigger>
         </Sidebar>
         <Link to='/' className="text-xl flex items-center gap-4">
-          <Logo className="fill-foreground size-[1.5em]" />
+          <Logo className="fill-white size-[1.5em]" />
           <div className="tracking-[8px]">ConnectiFlow</div>
         </Link>
         <button className="p-4 cursor-pointer text-lg bg-radial from-white/20 to-30% to-transparent transition-colors">
