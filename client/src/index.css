@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --foreground: #0d0d0d;
+  --background: #f8f8f8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #f8f8f8;
+    --background: #0d0d0d;
+  }
+}
+
+@theme inline {
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply min-h-screen bg-background text-foreground;
+  }
+}

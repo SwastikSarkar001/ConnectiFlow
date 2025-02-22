@@ -1,0 +1,35 @@
+import { motion, useAnimation } from "framer-motion"
+import { useContext, useEffect } from "react"
+import { BsArrowUp } from "react-icons/bs"
+import { ScrollContext } from "../App"
+
+export default function GoToTop() {
+  const scrolled = useContext(ScrollContext)
+  if (!scrolled) throw new Error("GoToTop component must be a child of ScrollProvider")
+  const controls = useAnimation()
+  const goToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
+  useEffect(() => {
+    controls.start({
+      opacity: scrolled ? 1 : 0,
+      pointerEvents: scrolled ? "all" : "none",
+      transition: {duration: 0.15}
+    })
+  }, [scrolled, controls])
+
+  return (
+    <motion.div
+      className="fixed z-50 select-none opacity-0 cursor-pointer bottom-10 right-10 lg:bottom-20 lg:right-20 aspect-square text-text text-3xl md:text-4xl bg-background border-text border-2 p-4 rounded-full before:content-['Go_to_top'] before:absolute before:pointer-events-none before:-z-10 before:transition-all before:delay-0 hover:before:delay-1000 before:opacity-0 before:scale-0 hover:before:opacity-100 hover:before:scale-100 before:top-0 hover:before:-top-12 before:left-1/2 before:-translate-x-1/2 before:text-sm before:w-max before:px-2 before:py-1 before:bg-background before:border-2 before:border-text"
+      animate={controls}
+      whileHover={{
+        scale: 1.2,
+        transition: {type: 'spring', stiffness: 300}
+      }}
+      onClick={goToTop}
+    >
+      <BsArrowUp />
+    </motion.div>
+  )
+}
