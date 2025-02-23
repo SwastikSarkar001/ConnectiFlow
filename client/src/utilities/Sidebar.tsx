@@ -131,7 +131,7 @@ export function SidebarContent({ children, className, ...props }: React.PropsWit
           initial='entry'
           animate='animate'
           exit='exit'
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.3 }}
           className={
             `fixed z-1000 overflow-y-auto p-4 scrollbar ${(direction === 'top' || direction === 'bottom') ? 'inset-x-0 h-[20%]' : 'inset-y-0 w-[20%]'} text-text bg-background border-2 border-gray-400/20 rounded-xl flex flex-col items-stretch` +
             (className ? " " + className : "")
@@ -139,7 +139,7 @@ export function SidebarContent({ children, className, ...props }: React.PropsWit
           {...props}
         >
           <button
-            className="fixed z-10 top-4 right-4 text-2xl rounded-lg size-6 outline-none flex items-center justify-center text-center border-2 border-transparent hover:border-text transition-colors"
+            className="absolute z-10 top-6 right-6 text-2xl rounded-lg size-6 outline-none flex items-center justify-center text-center border-2 border-transparent hover:border-text transition-colors"
             onClick={closeSidebar}
           >
             <svg
@@ -155,6 +155,7 @@ export function SidebarContent({ children, className, ...props }: React.PropsWit
               <path d="M18 6 6 18" />
               <path d="m6 6 12 12" />
             </svg>
+            <div className="sr-only">Close sidebar</div>
           </button>
           {children}
         </motion.div>
