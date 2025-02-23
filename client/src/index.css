@@ -26,3 +26,30 @@
     @apply min-h-screen bg-background text-foreground;
   }
 }
+
+@utility scrollbar {
+  /* width */
+  &::-webkit-scrollbar {
+    width: 0.5rem !important;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    @apply bg-[#5e5e5e]/10;
+    border-radius: inherit;
+  }
+  
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    @apply bg-[#5e5e5e]/20;
+    border-radius: inherit;
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#5e5e5e]/30;
+  }
+
+  scrollbar-width: thin;
+  /* scrollbar-gutter: stable; */
+}

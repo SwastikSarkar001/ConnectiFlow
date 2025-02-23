@@ -1,5 +1,9 @@
+import ChatInterface from "./ChatInterface";
+
 export default function Chat() {
   return (
-    <div>Chat</div>
+    <main className="relative h-screen">
+      <ChatInterface />
+    </main>
   )
 }
